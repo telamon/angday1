@@ -1,0 +1,10 @@
+<br/>
+<a ng-click="back()"class="btn btn-default btn-primary pull-right">back</a>
+<h3>Report
+<small>{{report.reportedAt | date}}</small>
+</h3>
+<h4><span class="label label-default label-lg" ng-class="{'label-danger' : report.state == 'stuck', 'label-pimary' : report.state != 'stuck' }">stuck</span></h4>
+<p class="well">
+	{{report.backstory}}
+</p>
+<img ng-src="{{report.image}}"/>
