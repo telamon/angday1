@@ -1,9 +1,16 @@
 <br/>
 <a ng-click="back()"class="btn btn-default btn-primary pull-right">back</a>
 <h3>Report
+<!-- Using datefilter to prettify plain Date objects -->
 <small>{{report.reportedAt | date}}</small>
 </h3>
-<h4><span class="label label-default label-lg" ng-class="{'label-danger' : report.state == 'stuck', 'label-pimary' : report.state != 'stuck' }">stuck</span></h4>
+<h4>
+	<!-- Using ng-class to conditionally apply css-classes depending on report.state -->
+	<span class="label label-default label-lg" ng-class="{'label-danger' : report.state == 'stuck', 'label-success' : report.state != 'stuck' }"> {{report.state}} </span>
+
+	<!-- Clicking the button will call the `unstuck` function in scope -->
+	<button ng-click="unstuck()" ng-show="report.state == 'stuck'" class="btn btn-xs btn-primary">Rescue</button>
+</h4>
 <p class="well">
 	{{report.backstory}}
 </p>
